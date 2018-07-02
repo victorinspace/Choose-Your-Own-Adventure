@@ -6,34 +6,34 @@ var theChallenge = function() {
 }
 
 var firstSteps = function() {
-	var intro = prompt('You find yourslef inside of a cobble-stone room. What do you do? \n [look around] [yell for help] [cry]')
+	var intro = prompt(`You find yourslef inside of a cobble-stone room. What do you do? \n [look around] [yell for help] [cry]`)
 
 	if (intro == "look around") {
-		alert('There is a small cot, bucket, and a single wooden door. by which you can determine is locked from the other side.')
+		alert(`There is a small cot, bucket, and a single wooden door. by which you can determine is locked from the other side.`)
 		
 		firstSteps2()
 		function firstSteps2() {
-			var intro2 = prompt('[yell for help] [cry]')
+			var intro2 = prompt(`[yell for help] [cry]`)
 			
-			if (intro2 == "yell for help") {
+			if (intro2 == `yell for help`) {
 				legacy++
 				theChallenge()
-			} else if (intro2 == "cry") {
+			} else if (intro2 == `cry`) {
 				legacy--
 				theChallenge()
 			} else {
-				alert("Please type one of the options.")
+				alert(`Please type one of the options.`)
 				firstSteps2()
 			}
 		}
-	} else if (intro == "yell for help") {
+	} else if (intro == `yell for help`) {
 		legacy++
 		theChallenge()
-	} else if (intro == "cry") {
+	} else if (intro == `cry`) {
 		legacy--
 		theChallenge()
 	} else {
-		alert("Please type one of the options.")
+		alert(`Please type one of the options.`)
 		firstSteps()
 	}
 }
