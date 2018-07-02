@@ -2,16 +2,16 @@ var legacy = 0
 var shame = 0
 
 
-var awaken = [
-	'look around',
-	'yell for help',
-	'cry'
-]
+var response = {
+	awaken: ['look around', 'yell for help', 'cry'],
+	toStranger: ["I will defeat whoever you put before me!", "I shall never!", "Cry"]
+}
 
 var stranger = [
 	`Your Legacy: ${legacy} \n\n A stranger is heard approaching from the other side of the door. Upon arrival they open the tiny peep-hole and say, "Ah, I see that you are finally awake! Good! It is time for you to enter the Arena and fight for your freedom!"`,
-	`Your Legacy: ${legacy} \n\n The strange man continues, rudely not introducing himself, "You see, you have been brought here to stand trial for the crimes by which you have commited." \n\n The strange man seems pleased as he says this. \n\n "Now, I don't pleasure in this," he lies, "But you are to engage in combat with one of the king's champions. If you succeed, you are forgiven and are free to go!"`
-]
+	`Your Legacy: ${legacy} \n\n The strange man continues, rudely not introducing himself, "You see, you have been brought here to stand trial for the crimes by which you have commited." \n\n The strange man seems pleased as he says this. \n\n "Now, I don't pleasure in this," he lies, "But you are to engage in combat with one of the king's champions. If you succeed, you are forgiven and are free to go! \n\n [I will defeat whoever you put before me!] [I shall never!] [Cry]"`,
+	`Your Legacy: ${legacy} \n\n The Stranger howls with laughter. \n\n "You presume to have a choice!"`
+ ]
 
 
 var theChallenge = function() {
@@ -19,6 +19,8 @@ var theChallenge = function() {
 
 	alert(stranger[0])
 	alert(stranger[1])
+
+	prompt("poop")
 	// var strangeMan = alert(`Your Legacy: ${legacy} 
 	// 	A stranger is heard approaching from the other side of the door. Upon arrival they open the tiny peep-hole and say, "Ah, I see that you are finally awake! Good! It is time for you to enter the Arena and fight for your freedom!"`)
 	
@@ -34,17 +36,17 @@ var theChallenge = function() {
 var firstSteps = function() {
 	var intro = prompt(`You find yourslef inside of a cobble-stone room. What do you do? \n\n [look around] [yell for help] [cry]`)
 
-	if (intro == awaken[0]) {
+	if (intro == response.awaken[0]) {
 		alert(`There is a small cot, bucket, and a single wooden door, by which you can determine is locked from the other side.`)
 		
 		firstSteps2()
 		function firstSteps2() {
 			var intro2 = prompt(`[yell for help] [cry]`)
 			
-			if (intro2 == awaken[1]) {
+			if (intro2 == response.awaken[1]) {
 				legacy++
 				theChallenge()
-			} else if (intro2 == awaken[2]) {
+			} else if (intro2 == response.awaken[2]) {
 				legacy--
 				theChallenge()
 			} else {
@@ -52,10 +54,10 @@ var firstSteps = function() {
 				firstSteps2()
 			}
 		}
-	} else if (intro == awaken[1]) {
+	} else if (intro == response.awaken[1]) {
 		legacy++
 		theChallenge()
-	} else if (intro == awaken[2]) {
+	} else if (intro == response.awaken[2]) {
 		legacy--
 		theChallenge()
 	} else {
