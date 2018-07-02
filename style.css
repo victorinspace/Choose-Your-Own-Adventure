@@ -14,3 +14,22 @@ body {
 *, *:after, *:before {
 	box-sizing: inherit;
 }
+
+h2, p {
+	color: #fff;
+}
+
+#container {
+	margin: auto;
+  width: 50%;
+  border: 3px solid #f00;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#displaytext {
+	background: #5b5b5b;
+	padding: 20px;
+	font-family: 'Markazi Text', serif;
+	font-size: 30px;
+}
