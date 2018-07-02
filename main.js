@@ -1,0 +1,1 @@
+var content = document.getElementById("adventure").innerHTML
