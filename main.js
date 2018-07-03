@@ -14,8 +14,11 @@ var exposition = {
 		`Your Legacy: ${legacy} \n\n As your near the light you can hear the roar of a thousand people just outside the hallway. Coming to the opening, you can see the Arena. A huge space surrounded by seats and statues of generals of war. Your heart beats faster as you stand in doorway, just outside the sunlight. \n\n One of the guards hand you a rusty sword and small wooden shield, the other guard follows up this gesture by kicking you into the unforgiving light.`,
 		// Fight or Talk
 		`Your Legacy: ${legacy} \n\n Your ears ring as the noise from the crowd blends into one cacophony of screaming and shouting. \n\n You can see the King's Champion before you, approaching without care. He wields a mighty axe and iron shield. \n\n What do you do? \n\n Option 1: Engage in glorious battle! \n\n Option 2: Attempt to reason with your competitor.`
-	],
-	battle: [
+	]
+}
+
+function theBattleCommences(legacy, shame, num) {
+	var battleSequence = [
 		// Fight!
 		`Your Legacy: ${legacy} \n\n You sprint towards the Champion, matching his blade with yours. You both swing for each other's torso, then the head. Blocking and ducking back and forth. The crowd eats it up. Your foe is outmatched. \n\n You lead him to lunge towards you, sidestepping his approach and kicking the back of his knees. The Champion falls to the ground, fatigue taking control... \n\n Option 1: Perform a fatal execution. \n\n Option 2: Bask in the applause of the crowd.`,
 		// Attemping reason
@@ -25,9 +28,14 @@ var exposition = {
 		// Strike from below
 		`Your Legacy: ${legacy} \n\n You slice at his ankles causing him to lose balance. His hand falls, but misses you entirely. He is prone for a fatal attack, what do you do? \n\n Option 1: Perform a fatal execution. \n\n Option 2: Bask in the applause of the crowd.`,
 		// Pride ending
-		`You entertain the crowd, basking in their adulation only to be struck down by Hybreios, the god of pride. You are dead. \n\n Your Legacy: ${legacy} \n\n You Shame: ${shame}`
-	],
-	dragon: [
+		`You entertain the crowd, basking in their adulation only to be struck down by Hybreios, the god of pride. You are dead. \n\n Your Legacy: ${legacy} \n\n Your Shame: ${shame}`
+	]
+
+	return battleSequence[num]
+}
+
+function dragonPhase(legacy, shame, num) {
+	var dragonText = [
 		// Dragon Fight!
 		`Your Legacy: ${legacy} \n\n Just as you are about to deliver the final blow, an enourmous dragon appears from the sky striking fear and panic. Citizens flee rapidly. The dragon descends into the Arena. What do you do? \n\n Option 1: Engage the might dragon! \n\n Option 2: Run!`,
 		// Killed by dragon
@@ -35,6 +43,8 @@ var exposition = {
 		// Slay the dragon
 		`You run towards the dragon as it lands on the ground. It didn't expect such a bold move and you are able to climb to the top of it's neck. \n\n You plunge your blade deep into the drgon's throat. The dragon screams in pain, writhgin around, fire barely coming from it's mouth. You hold on tightly, keeping the blade firmly in place and plunge it deeper. \n\n The dragon makes one last cry and collapses to the ground. \n\n You have slain the dragon and everyone respects you. Well done! \n\n Your Legacy: ${legacy}`
 	]
+
+	return dragonText[num]
 }
 
 // The Stranger
@@ -69,7 +79,9 @@ var callToAction = function() {
 		callToAction()
 	}
 
-	alert()
+	alert(exposition.theThreshold[0])
+	alert(exposition.theThreshold[1])
+	battlePhase()
 }
 
 // Looking Around the Room
@@ -88,16 +100,34 @@ var lookAround = function () {
 	}
 }
 
+// Battle Phase
+var battlePhase = function() {
+	var engage = prompt(exposition.theThreshold[2]) // Fight or reason
+
+	if (engage == '1') { // Fight!
+		legacy++
+		executeOrNot()
+	} else if (engage == '2') { // decline battle
+		legacy--
+		shame--
+		alert(theBattleCommences[legacy, shame, 2]) // killed by champion ending
+	} else {
+		alert(`Please type one of the options.`)
+		battlePhase()
+	}
+}
+
 // Dragon Fight
 var dragonFight = function() {
-	var dragon = prompt(exposition.dragon[0]) // enter the dragon
+	var fightTheDragon = prompt(dragon[legacy, shame, 0]) // enter the dragon
 	
-	if (dragon == '1') { // fight the dragon
+	if (fightTheDragon == '1') { // fight the dragon
 		legacy++
-		alert(exposition.dragon[2]) // slay dragon ending
-	} else if (dragon == '2') { // run from dragon
+		alert(dragon[legacy, shame, 2]) // slay dragon ending
+	} else if (fightTheDragon == '2') { // run from dragon
 		legacy--
-		alert(exposition.dragon[1])// killed by dragon ending
+		shame++
+		alert(dragon[legacy, shame, 1])// killed by dragon ending
 	} else {
 		alert(`Please type one of the options.`)
 		dragonFight()
@@ -106,14 +136,15 @@ var dragonFight = function() {
 
 // Fighting or Gloating
 var executeOrNot = function () {
-	var execute = prompt(exposition.battle[0]) // execute champion or gloat
+	var execute = prompt(battleSequence[0]) // execute champion or gloat
 
 	if (execute == '1') { // execute champion
 		legacy++
 		dragonFight()
 	} else if (execute == '2') { // choose pride
 		legacy--
-		alert(exposition.battle[4]) // pride ending
+		shame++
+		alert(battleSequence[legacy, shame, 4]) // pride ending
 	} else {
 		alert(`Please type one of the options.`)
 		executeOrNot()
@@ -139,23 +170,3 @@ var introduction = function() {
 	}
 }
 introduction()
-
-alert(exposition.theThreshold[0])
-alert(exposition.theThreshold[1])
-
-// Battle Phase
-var battlePhase = function() {
-	var engage = prompt(exposition.theThreshold[2]) // Fight or reason
-
-	var fighting = function() {
-		if (engage == '1') { // Fight!
-			legacy++
-			executeOrNot()
-		} else if (engage == '2') { // decline battle
-			legacy--
-			alert(exposition.battlePhase[2]) // killed by champion ending
-		} else {
-			alert(`Please type one of the options.`)
-			battlePhase()
-		}
-}
