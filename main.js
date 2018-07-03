@@ -23,7 +23,11 @@ var exposition = {
 
 		`You slice at his ankles causing him to lose balance. His hand falls, but misses you entirely. He is prone for a fatal attack, what do you do? \n\n Option 1: Perform a fatal execution. \n\n Option 2: Bask in the applause of the crowd.`
 
-		`You entertain the crowd `
+		`You entertain the crowd, basking in their adulation only to be struck down by Hybreios, the god of pride. You are dead.`
+
+		`Just as you are about to deliver the final blow, an enourmous dragon appears from the sky striking fear and panic. Citizens flee rapidly. The dragon descends into the Arena. What do you do? \n\n Option 1: Engage the might dragon! \n\n Option 2: Run!`
+		`You turn to flee through the doorway you came in from. You make it just inside the hallway, but the dragon has already unleashed a magnficent fire breath towards you. The fire spreads into the hallway, burning you to a crisp. You are dead.`
+		`You run towards the dragon as it lands on the ground. It didn't expect such a bold move and you are able to climb to the top of it's neck. \n\n You plunge your blade deep into the drgon's throat. The dragon screams in pain, writhgin around, fire barely coming from it's mouth. You hold on tightly, keeping the blade firmly in place and plunge it deeper. \n\n The dragon makes one last cry and collapses to the ground. \n\n You have slain the dragon and everyone respects you. Well done!`
 	]
 
 }
