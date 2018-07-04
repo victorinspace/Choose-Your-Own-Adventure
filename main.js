@@ -1,10 +1,49 @@
 // Score Counters
-var legacy = 0
-var shame = 0
+let legacy = 0
+let shame = 0
+
+
+
+/*
+let introExposition = {
+	intro: ``,
+	lookAround: ``,
+	cry: ``,
+	enterStranger: ``,
+	askQuestions: ``,
+	cryMore: ``,
+	acceptChallenge: ``,
+	declineChallenge: ``
+}
+
+let battleExposition = {
+	intro: ``,
+	guards: ``
+	fightChampion: ``,
+	attemptReason: ``,
+	pleadForLife: ``,
+	killedByChampion: ``,
+	strikeAnkles: ``,
+	gloat: ``
+}
+
+let dragonExposition = {
+	intro: `Your Legacy: ${legacy} | Your Shame: ${shame}
+		As you bring your sword down for the final blow, the crowd screams in fear and the sunlight darkens. You look up and see an enormous dragon descending upon you.
+		What do you do?
+		Option 1: Strike at the beast!
+		Option 2: Run!`,
+	runAway: `Turning away from the dragon, you sprint towards doorway. Unfortunately, the dragon has already began spewing his fiery breath. The flame reaches you before you can make it to the edge of the Arena. You are burnt to a crisp.
+		You are dead. 
+		Your Legacy: ${legacy} | Your Shame: ${shame}`,
+	fightDragon: ``
+}
+*/
+
 
 
 // Respones and Narration
-var exposition = {
+let exposition = {
 	intro: [
 		`You awaken to find that you have been placed inside of a cobble-stone room. What do you do? \n\n Option 1: Look around the room \n\n Option 2: Yell for help. \n\n Option 3: Cry.`,
 		`There is a small cot, a small bucket, and a single wooden door, by which you can determine is locked from the other side.`
@@ -51,7 +90,7 @@ function dragonPhase(legacy, shame, num) {
 function stranger(legacy, num) {
 	var theStranger = [
 		`Your Legacy: ${legacy} \n\n You hear casual yet heavy footsteps approaching your room. They stop abruptly in front of the door and with no urgency a small window in the door is opened. \n\n Peeping through the tiny peep-hole is one distant blue human eyeball that says, "Ah! I see that you are finally awake! Good! It is time for you to enter the Arena and fight for your freedom!"`,
-		`Your Legacy: ${legacy} \n\n The Stranger continues, rudely not introducing himself, "You see, you have been brought here to stand trial for the crimes that you have commited." \n\n The strange man seems pleased as he says this. \n\n "Now, I don't take any pleasure in this," he lies, "But you are to engage in mortal combat with one of the king's own champions. If you succeed, you are forgiven and are free to go!" \n\n The Stranger pauses for a moment and says, "And if you are to fail then... well, we don't need to explain much further do we?" \n\n You can feel The Stranger smiling on the other side. \n\n Option 1: "I will defeat whoever you put before me!" \n\n Option 2: "I will not fight! \n\n Option 3: Cry.`,
+		`Your Legacy: ${legacy} \n\n The Stranger continues, rudely not introducing himself, "You see, you have been brought here to stand trial for the crimes that you have commited." \n\n The strange man seems pleased as he says this. \n\n "Now, I don't take any pleasure in this," he lies, "But you are to engage in mortal combat with one of the king's own champions. If you succeed, you are forgiven and are free to go!" \n\n The Stranger pauses for a moment and says, "And if you are to fail then... well, we don't need to explain much further do we?" \n\n You can feel The Stranger smiling on the other side. \n\n Option 1: "I will defeat whoever you put before me!" \n\n Option 2: "I will not fight!`,
 		`Your Legacy: ${legacy} \n\n The Stranger howls with laughter. \n\n "You presume to have a choice!" The Stranger says and as he says this, metal keys rattle at the door handle...`
 	]
 
